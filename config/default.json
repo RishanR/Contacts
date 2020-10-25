@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://admin:admin12345678@contacts.miluc.mongodb.net/contacts?retryWrites=true&w=majority",
+    "jwtSecret": "secret"
+}
