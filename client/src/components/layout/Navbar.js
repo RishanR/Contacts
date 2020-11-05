@@ -1,12 +1,26 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Navbar = ({ title, icon }) => {
     return (
-        <div className="navbar bg-primary">
-            <h1>
-                <i className={icon} /> {title}
-            </h1>
+        <div className="navbar">
+            <div className="left-container">
+                <Link to="/" className="logo">
+                        
+                        <i className={icon} /> {title}
+                        
+                </Link>
+            </div> 
+            <div className="right-container">
+                <Link to="/about" className="navbar-item">
+                    About
+                </Link>
+
+                <Link to="#" className="navbar-item">
+                    Login
+                </Link>
+            </div>  
         </div>
     )
 }
