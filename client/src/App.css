@@ -60,6 +60,23 @@ Link {
   background-size: cover;
 }
 
+.home-outer-container {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  justify-content: center;
+  align-items: center;
+}
+
+.home-container {
+  padding: 40px;
+  width: 80%;
+  height: 80%;
+  background-color: #0b111d;
+  border-radius: 40px;
+  box-shadow: 3px 3px 50px 2px #121212;
+}
+
 .navbar {
   display: flex;
   background-color: #101820ff;
