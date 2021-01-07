@@ -7,10 +7,11 @@ const ContactItem = ({ contact }) => {
 
     const contContext = useContext(contactContext);
 
-    const { deleteContact } = contContext;
+    const { deleteContact, setCurrent, clearCurrent } = contContext;
 
     const onDelete = () => {
         deleteContact(id);
+        clearCurrent();
     }
 
     return (
@@ -29,7 +30,7 @@ const ContactItem = ({ contact }) => {
                     </li>}
                 </ul>
                 <p className='item-edit-delete-group'>
-                    <button className='fas fa-edit item-button item-edit'></button>
+                    <button onClick={() => setCurrent(contact)} className='fas fa-edit item-button item-edit'></button>
                     <button onClick={onDelete} className='fas fa-trash item-button item-delete'></button>
                 </p>
             </div>
