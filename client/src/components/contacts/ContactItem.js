@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import contactContext from '../../context/contacts/contactContext';
 
 const ContactItem = ({ contact }) => {
-    const { id, name, email, phone, type } = contact;
+    const { _id, name, email, phone, type } = contact;
 
     const contContext = useContext(contactContext);
 
     const { deleteContact, setCurrent, clearCurrent } = contContext;
 
     const onDelete = () => {
-        deleteContact(id);
+        deleteContact(_id);
         clearCurrent();
     }
 

@@ -1,8 +1,45 @@
-import React from 'react'
+import React, { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import AuthContext from '../../context/auth/authContext';
+import ContactContext from '../../context/contacts/contactContext';
 
 const Navbar = ({ title, icon }) => {
+    const authContext = useContext(AuthContext);
+    const contactContext = useContext(ContactContext);
+
+
+    const { isAuthenticated, logout, user } = authContext;
+    const { clearContacts } = contactContext;
+
+    const onLogout = () => {
+        logout();
+        clearContacts();
+    }
+
+    const authLinks = (
+        <Fragment>
+            <div className="navbar-item-no-click">
+                Hello  { user && user.name }
+            </div>
+            <div onClick={onLogout} className="navbar-item">
+                <i className='fas fa-sign-out-alt'> <span className='navbar-text'> Logout</span></i>
+            </div>
+        </Fragment>
+    )
+
+    const guestLinks = (
+        <Fragment>
+            <Link to="/register" className="navbar-item">
+                Register
+            </Link>
+
+            <Link to="/login" className="navbar-item">
+                Login
+            </Link>
+        </Fragment>
+    )
+
     return (
         <div className="navbar">
             <div className="left-container">
@@ -13,13 +50,8 @@ const Navbar = ({ title, icon }) => {
                 </Link>
             </div> 
             <div className="right-container">
-                <Link to="/about" className="navbar-item">
-                    About
-                </Link>
-
-                <Link to="#" className="navbar-item">
-                    Login
-                </Link>
+                {isAuthenticated ? authLinks : guestLinks}
+                
             </div>  
         </div>
     )

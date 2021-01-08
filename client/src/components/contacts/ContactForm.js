@@ -62,7 +62,7 @@ const ContactForm = () => {
                 <input className='contact-form-button emphasize-button' type='submit' value={current ? 'Update' : 'Add'} />
             </div>
             {current && <div>
-                    <button className='contact-form-button subtle-button' onClick={clearAll}>Clear</button>
+                    <button className='contact-form-button subtle-button' onClick={clearAll}>Cancel</button>
                 </div>}
         </form>
     )
